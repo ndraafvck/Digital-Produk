@@ -51,7 +51,7 @@
                         // Animasi pergerakan halus
                         'subtle-move': 'subtle-move 30s infinite alternate', 
                         // Animasi scroll testimoni lebih cepat (40s)
-                        'testimonial-scroll': 'scroll-left 40s linear infinite', 
+                        'testimonial-scroll': 'scroll-left 120s linear infinite', 
                         // Animasi pulse neon untuk garis sambung
                         'pulse-neon': 'pulse-neon 3s infinite alternate',
                     }
@@ -174,6 +174,7 @@
     </style>
 </head>
 <body class="text-gray-200 antialiased font-sans">
+<script>alert("Website Masih Dalam Tahap Pengembangan, Mungkin Beberapa Produk Belum Ditambahkan -Chandra")</script>
 
     <!-- Kontainer Utama -->
     <div id="app" class="max-w-7xl mx-auto p-4 md:p-8">
@@ -182,7 +183,7 @@
         <header class="flex justify-between items-center py-4 px-4 bg-dark-card/80 backdrop-blur-sm rounded-xl shadow-2xl mb-8 glow-border">
             <div class="flex items-center space-x-3">
                 <!-- LOGO/PROFIL -->
-                <img id="logo-img" src="iz.jpg" alt="Chandra Logo" class="w-10 h-10 rounded-full object-cover border-2 border-zeka-blue p-0.5" 
+                <img id="logo-img" src="chandra.jpg" alt="ChandraID Logo" class="w-10 h-10 rounded-full object-cover border-2 border-zeka-blue p-0.5" 
                     onerror="this.onerror=null; this.src='https://placehold.co/40x40/00E5FF/000000?text=C';">
                 <!-- H1 Update: "Chandra Hosting" menjadi putih total -->
                 <h1 class="text-2xl font-extrabold tracking-wider text-white uppercase">Chandra <span class="text-white">Hosting</span></h1>
@@ -234,19 +235,19 @@
                 <!-- Youtube Link dengan Username -->
                 <a href="https://www.youtube.com/@Rexxuz11" target="_blank" class="flex items-center space-x-2 text-gray-400 hover:text-red-500 transition duration-300" title="Instagram Chandra">
                     <i data-lucide="youtube" class="w-5 h-5"></i>
-                    <span class="text-sm font-semibold">@knowndraa</span>
+                    <span class="text-sm font-semibold">Youtube</span>
                 </a>    
                 
                <!-- TikTok Link dengan Username -->
                 <a href="https://www.tiktok.com/@knowndraa" target="_blank" class="flex items-center space-x-2 text-gray-400 hover:text-ndraa-black transition duration-300" title="TikTok Chandra">
                     <i data-lucide="music2" class="w-5 h-5"></i>
-                    <span class="text-sm font-semibold">@knowndraa</span>
+                    <span class="text-sm font-semibold">Tiktok</span>
                 </a>
                 
                 <!-- Instagram Link dengan Username -->
                 <a href="https://www.instagram.com/knowndraa" target="_blank" class="flex items-center space-x-2 text-gray-400 hover:text-ndraa-purple transition duration-300" title="Instagram Chandra">
                     <i data-lucide="instagram" class="w-5 h-5"></i>
-                    <span class="text-sm font-semibold">@knowndraa</span>
+                    <span class="text-sm font-semibold">Instagram</span>
                 </a>
                 
             </div>
@@ -282,9 +283,40 @@
   type: "panel"
 },
             {
+                name: "Virtual Private Server",
+                slug: "virtual-private-server",
+                imageUrl: "",
+                isBestseller: true,
+                description: "Vps premium high quality cocok dengan berbagai pilihan sistem operasi dan dukungan ahli 24/7. Pilih paket Anda di bawah ini dan tingkatkan hosting Anda hari ini.",
+                benefits: ["Free Install Pterodactyl", " Free Request Subdomain", "Free install Egg Server Lengkap", " Free Pasang Thema Panel", "Vps Bergaransi", " 100% Server Menjadi Milikmu", "Vps Aktif 1Bulan/Lebih"],
+                prices: [
+                { duration: "Ram2 Core2", price: "Rp 25.000" },
+                { duration: "Ram4 Core2", price: "Rp 30.000" },
+                { duration: "Ram8 Core4", price: "Rp 40.000" },
+                { duration: "Ram16 Core4", price: "Rp 50.000" },
+                { duration: "Ram16 Core8", price: "Rp 65.000" }
+                ],
+                tag: "Cloud Hosting",
+            },
+            {
+                name: "Cloud Digital Ocean",
+                slug: "cloud-digital-ocean",
+                imageUrl: "cloud.jpeg",
+                isBestseller: false,
+                description: "DigitalOcean adalah platform penyedia layanan cloud yang sederhana, performa tinggi, dan hemat biaya. dengan harga terjangkau dan antarmuka yang intuitif untuk memudahkan pengelolaan infrastruktur cloud. ",
+                benefits: ["Unlock 16/8 - 10 Droplet", " Unlock 8/2 - 3 Droplet", "Ready Kosongan", " Input Promo Code", "Harga Terjangkau", " Awet Untuk Jangka Panjang"],
+                prices: [
+                { duration: "3Droplet Bill Vcc", price: "Rp 60.000" },
+                { duration: "10Droplet Bill Vcc", price: "Rp 75.000" },
+                { duration: "3Droplet Bill Paypal", price: "Rp 145.000" },
+                { duration: "10Droplet Bill Paypal", price: "Rp 175.000" }
+                ],
+                tag: "Cloud Hosting",
+            },
+            {
                 name: "Nokos Whatsapp",
-                slug: "nomor-kosong",
-                imageUrl: "nokos.png",
+                slug: "nokos-whatsapp",
+                imageUrl: "nokos.jpeg",
                 isBestseller: true,
                 description: "Nomor virtual whatsapp fresh dengan pilihan berbagai negara, dan beberapa providers langsung siap untuk digunakan.",
                 benefits: ["Nomor Fresh", " Anti Kenon", "Anti Hackback", " Garansi Otp", "Aman 100%", " Harga Terbaik & Murah",],
@@ -297,10 +329,81 @@
                 ],
                 tag: "Nomor Kosong",
             },
-                        {
+            {
+                name: "Userbot Telegram",
+                slug: "userbot-telegram",
+                imageUrl: "",
+                isBestseller: false,
+                description: "Userbot Telegram adalah program otomatisasi berbasis akun pribadi yang dirancang untuk membantu aktivitas pribadi, pengelolaan grup, broadcasting dan produktivitas melalui perintah teks.",
+                benefits: ["Userbot Premium", " Bot On 24 Jam", "Module 343+", " Anti Delay", "Bisa Broadcast Sepuasnya", " Anti Beku Setelah Pasang", "Userbot Aman 100%"],
+                prices: [
+                { duration: "1 Bulan", price: "Rp 4.000" },
+                { duration: "Permanent", price: "Rp 8.000" },
+                { duration: "Seles Userbot", price: "Rp 15.000" }
+                ],
+                tag: "Other/Lainnya",
+            },
+            {
+                name: "Murbug Tredict Vvip",
+                slug: "murbug-tredict-vvip",
+                imageUrl: "",
+                isBestseller: false,
+                description: "Murbug Ganas Menggunakan Script Tredict Invictus Vvip, Dengan Berbagai Efek & Fitur Gacor Untuk Digunakan",
+                benefits: ["Bebas Bug Sepuasnya", " Menu Special Gacor", "Script Selalu Update", " Bot Active 24 Jam", "Fitur Lengkap++"],
+                prices: [
+                { duration: "1 Minggu", price: "Rp 6.000" },
+                { duration: "1 Bulan", price: "Rp 8.000" },
+                { duration: "Permanent", price: "Rp 18.000" }
+                ],
+                tag: "Other/Lainnya",
+            },
+            {
+                name: "Partner Pribadi",
+                slug: "partner-pribadi",
+                imageUrl: "",
+                isBestseller: true,
+                description: "Partner pribadi menyediakan banyak keuntungan yang di dapat, mulai dari murid, akses panel, script permanent, hingga promote admin benefit yang tidak ada di list silahkan tanya pada admin ayo join sekarang",
+                benefits: ["Mendapatkan Partner Panel", " Akses Reseller Surxrat", "Akses Partner Shadow", " Get Murid Nokos, Murban Tele, Murban Whatsapp, Murid Suntik, Murid Ransomware, Murid Phising, dll", "get script all full update", " get reseller userbot permanent", "Get Tools Ddos & Script Deface", " Mendapatkan Partner Function", "Mendapatkan ribuan base 3000+", "promote role partner di gb marketplace", "Di promosiin Di All Channel Whatsapp & Telegram"],
+                prices: [
+                { duration: "Partner Vvip", price: "Rp 50.000" }
+                ],
+                tag: "Other/Lainnya",
+            },
+            {
+                name: "Murid / Student",
+                slug: "murid-student",
+                imageUrl: "",
+                isBestseller: false,
+                description: "Ready Murid Suntik, Murid Nokos, Murid Banned, Dan Murid Unbanned Lengkap Pengajaran Dan Bahannya.",
+                benefits: ["Full Pengajaran & Tutorial", "Mendapatkan Aplikasi", " Mendapatkan Website ", " Mendapatkan Bahan ", " Get Metode & Trik", "Dijamin Balik Modal Setelah Join"],
+                prices: [
+                { duration: "Murid Nokos", price: "Rp 10.000" },
+                { duration: "Murid Suntik", price: "Rp 10.000" },
+                { duration: "Murid Banned", price: "Rp 15.000" },
+                { duration: "Murid Unbanned", price: "Rp 15.000" },
+                { duration: "Murid Script", price: "Rp 20.000" }
+                ],
+                tag: "Other/Lainnya",
+            },
+            {
+                name: "Sewa Bot",
+                slug: "sewa-bot",
+                imageUrl: "",
+                isBestseller: false,
+                description: "Sewa Bot Premium Cocok Buat Yang Punya Grup Bisa Untuk Jaga Grup Dan Lainnya Fitur Lengkap Harga Terjangkau",
+                benefits: ["Fitur 2600+", "Bot Bebas Dipakai Kapanpun", "Bot Bisa Dimasukkan Ke Grupmu", " Bisa Untuk Menjaga Grupmu", " Bot Anti Delay", "Bot Online 24 Jam", " Menu Lengkap"],
+                prices: [
+                { duration: "1 Bulan", price: "Rp 10.000" },
+                { duration: "2 Bulan", price: "Rp 18.000" },
+                { duration: "3 Bulan", price: "Rp 26.000" },
+                { duration: "Permanent", price: "Rp 35.000" }
+                ],
+                tag: "Other/Lainnya",
+            },
+            {
                 name: "Surxrat New S35",
                 slug: "surxrat-new",
-                imageUrl: "surxrat",
+                imageUrl: "surxrat.jpeg",
                 isBestseller: false,
                 description: "Program Yang Menyediakan Kemampuan Untuk Melakukan Pengawasan Rahasia Atau Akses Tanpa Izin Ke Device Korban.",
                 benefits: ["Melihat Isi Galeri Korban", "Melihat Semua Email/Gmail Korban", "Melihat Semua Sms Korban", "Memantau Status Sistem Korban", " Menghapus Semua File Korban", "Mengubah Wallpaper Utama & Lock Screen", " Menyalakan Senter Pada Hp Korban", "Garansi Seumur Hidup", "Semua Fitur Premium", " Lengkap Tutorialnya", "Dan Masih Banyak Lagi"],
@@ -308,46 +411,55 @@
                 { duration: "Surxrat", price: "Rp 20.000" },
                 { duration: "Reseller", price: "Rp 45.000" }
                 ],
-                tag: "Remote Acces Trojan",
+                tag: "Other/Lainnya",
             },
             {
-                name: "Script Alicev16",
-                slug: "sc-alice-bot",
-                imageUrl: "alice.png",
-                description: "Source code bot WhatsApp Alice. Sekali beli, free update minor.",
-                benefits: ["Security Database (Sangat Aman)", "1600+ Fitur Aktif & Stabil", "Type Case X Plugins", "Full Support Button,katalog,quick reply, & Carousel", "Support Lid & Jid", "100% No Enc ( Full Open Source & Bebas branding)",
-                            "Size Ringan & Peforma Stabil",
-                            "Ringan Di Hp, Panel, & Lain lain",
-                            "Base Simple & Struktur Rapih",
-                            "Custom Pairing Code ",
-                            "40+ Scraper Premium Aktif ( Youtube,Tiktok, Instagram,DLL)",
-                            "Free Apikey Bawaan( Siap Pakai! , Tanpa perlu setup )",
-                            "Dan Masih Banyak Lagi!!"],
+                name: "Repository Protect Panel",
+                slug: "repository-protect-panel",
+                imageUrl: "",
+                isBestseller: false,
+                description: "Repository Yang Berguna & MultiFungsi Menyediakan Berbagai Fitur Untuk Membantu Pengerjaan Install Lebih Mudah",
+                benefits: ["Fitur Install Protect Panel", " Fitur Uninstall Protect Panel", "Installer Panel", " Fitur Hackback Panel", "Installer Tema Panel Billing, Nebula, Stellar, Enigma, Elysium", " Fitur Change Pwvps"],
                 prices: [
-                { duration: "No Update", price: "Rp 50.000" }
+                { duration: "Akses Token", price: "Rp 10.000" }
                 ],
-                tag: "Script",
+                tag: "Script & Tools",
+                type: "script"
+            },
+            {
+                name: "Script Tredict Invictus",
+                slug: "sc-tredict-invictus",
+                imageUrl: "alice.png",
+                description: "Script tredict invictus script bug ganas dan gacor cocok untuk open murbug dengan security database yang kompleks script anti kena colong worth it untuk dibeli.",
+                benefits: ["Security Database (Sangat Aman)", "Crash Invisible", " Delay Invisible", "Force Close", " Hard Iphone", "Brutal Android", " Sender Aman Anti Kenon", "Script Ringan Di Device & Panel", " Aktif Dengan Beberapa Tools", "Script Multi Sender", " Cocok Untuk Open Murbug", "Fitur Dijamin Lengkap & Multifungsi"],
+                prices: [
+                { duration: "No Update", price: "Rp 25.000" },
+                { duration: "Free Update 3×", price: "Rp 35.000" },
+                { duration: "Full Update", price: "Rp 45.000" }
+                ],
+                tag: "Script & Tools",
                 type: "script"
             }
 
         ];
 
         const testimonialsData = [
-            { name: "Vlrnz2", feedback: "Gacorrr Bg", app: "spotify", rating:3},
-            { name: "Rerep", feedback: "sayangggg kerennnn.", app: "capcut", rating:5},
-            { name: "loANn4.", feedback: "mantap bg,aman", app: "alight motion", rating:5}, 
-            { name: "kazjj.", feedback: "Aman,mantp", app: "netflix", rating:5},
-            { name: "ryNZ.", feedback: "Bintang 1 karna ga kebagian Neflix", app: "panel", rating:1},
-            { name: "kaizo9.", feedback: "Gacor juga panel nya", app: "panel", rating:5},
-            { name: "ricco4.", feedback: "Akun Spotify nya works,Mantep ", app: "spotify", rating:4},
-            { name: "Dedenk.", feedback: "Mantap bg", app: "canva", rating:5},
-            { name: "Titan.", feedback: "Donee", app: "panel", rating:5},
-            { name: "Aryzn.", feedback: "Aman", app: "canva", rating:4},
-            { name: "Fldzyn", feedback: "mantap,aman ges", app: "chatgpt", rating:5},
-            { name: "apyan33.", feedback: "Admin nya gercep cuy", app: "Neflix", rating:5},
-            { name: "buyerzk.", feedback: "Mantappp", app: "Neflix", rating:5},
-            { name: "Rizkynn.", feedback: "Admin nya fastrespon cuy mantep", app: "Neflix", rating:5},
-            { name: "fazzln.", feedback: "Kpn Neflix ready", app: "canva", rating:3}
+            { name: "Rizz", feedback: "Gacorrr Bg", app: "panel 6gb", rating:3},
+            { name: "CacayCantik", feedback: "sayanggg, kerenn", app: "script tredict", rating:5},
+            { name: "Danzzstore.", feedback: "mantap bg,aman", app: "murid banned", rating:5}, 
+            { name: "wahyunihdek.", feedback: "Aman,mantp", app: "nokos indo", rating:5},
+            { name: "bayuganteng.", feedback: "numpang nongol bentar ahh wkwk", app: "suntik ig", rating:5},
+            { name: "rereimupp.", feedback: "Bintang 1 karna kehabisan stok nokos", app: "nokos", rating:1},
+            { name: "kaizo9.", feedback: "Gacor juga panel nya", app: "panel unli", rating:5},
+            { name: "ricco4.", feedback: "murunband nya works kedip cuy,mantep ", app: "murid unband", rating:4},
+            { name: "Dedenk.", feedback: "Mantap amanah terus bg", app: "vps r4c2", rating:5},
+            { name: "Rawrsulofficial.", feedback: "Donee", app: "panel 2gb", rating:5},
+            { name: "Aryzn.", feedback: "Aman amanah selalu", app: "do 10drop bill vcc", rating:4},
+            { name: "Fldzyn", feedback: "mantap,aman ges", app: "do 3 drop bill pp", rating:5},
+            { name: "apyan33.", feedback: "Admin nya gercep cuy", app: "suntik tiktok", rating:5},
+            { name: "sukajanda.", feedback: "adminnya ramah kiw", app: "murbug", rating:5},
+            { name: "Keyy.", feedback: "Admin nya fastrespon cuy mantep", app: "sewabot", rating:5},
+            { name: "fazzln.", feedback: "Kpn do ready om", app: "panel 1gb", rating:3}
          
         ];
 
@@ -427,10 +539,10 @@
                 <!-- CARA PEMESANAN (UPGRADE FUTURISTIK) -->
                 <section class="mb-12" id="cara-pemesanan">
                     <h3 class="text-4xl font-black text-white mb-3 text-center">
-                        <span class="bg-gradient-to-r from-zeka-blue to-zeka-cyan text-transparent bg-clip-text">AKTIVASI</span> INSTAN
+                        <span class="bg-gradient-to-r from-zeka-blue to-zeka-cyan text-transparent bg-clip-text">PEMBELIAN</span> INSTAN
                     </h3>
                     <!-- SUBTITLE DIUBAH KE WARNA PUTIH (text-white) -->
-                    <p class="text-white text-center mb-10 text-lg">Hanya 3 Langkah untuk Upgrade Kehidupan Digital Anda</p>
+                    <p class="text-white text-center mb-10 text-lg">Hanya 3 Langkah Untuk Pembelian Produk Digital Kami</p>
                     
                     <div class="relative grid md:grid-cols-3 gap-8">
                         
@@ -441,13 +553,13 @@
                         <div class="hidden md:block absolute top-1/2 left-[50%] right-[16.6%] transform -translate-y-1/2 w-[33%] pr-16 h-1 process-connector"></div>
 
                         <!-- Langkah 1: Kunci Produk -->
-                        ${renderHowToOrderStep(1, "UNLOCK PRODUK", "Jelajahi Produk kami dan kunci produk yang Anda butuhkan.", "lock", true)}
+                        ${renderHowToOrderStep(1, "SEARCHING PRODUK", "Jelajahi Produk kami dan kunci produk yang Anda butuhkan.", "lock", true)}
                         
                         <!-- Langkah 2: SINKRONISASI DATA -->
                         ${renderHowToOrderStep(2, "SINKRONISASI DATA", "Hubungi tim support kami via WhatsApp, kirimkan detail dan lakukan konfirmasi pembayaran.", "message-square-text", true)}
                         
                         <!-- Langkah 3: AKTIVASI ZAP -->
-                        ${renderHowToOrderStep(3, "AKTIVASI ZAP", "Akun premium Anda langsung diproses! Terima akses & nikmati fitur tak terbatas.", "zap", false)}
+                        ${renderHowToOrderStep(3, "PENGIRIMAN PRODUK", "Produk yang Anda beli langsung diproses! Admin akan langsung mengirim produk yang dibeli setelah transaksi selesai", "zap", false)}
                     </div>
                     
                 </section>
@@ -496,7 +608,7 @@
         }
 
             function renderTestimonial(name, feedback, app, rating = 5) {
-            const appName = products.find(p => p.name.toLowerCase().includes(app))?.name || 'Aplikasi';
+            const appName = products.find(p => p.name.toLowerCase().includes(app))?.name || 'Panel';
 
             // Generate bintang sesuai rating
             const stars = Array.from({ length: 5 }, (_, i) => {
@@ -531,7 +643,7 @@
                 <section class="mb-12">
                     <h3 class="text-4xl font-black text-zeka-blue mb-8 text-center">Testimoni Pelanggan <span class="text-white">Terbaru</span></h3>
                     <p class="text-center text-gray-400 max-w-2xl mx-auto mb-10">
-                        Lihat apa kata mereka yang buy, dan harga terbaik dari Zekaa Store.
+                        Lihat apa kata mereka yang buy, Dan harga terbaik dari Chandra Hosting.
                     </p>
 
                     <!-- Scrolling Wrapper -->
@@ -574,7 +686,7 @@
                     <!-- Search Bar -->
                     <div class="flex justify-center mb-6">
                         <div class="relative w-full max-w-lg">
-                            <input type="text" id="product-search" onkeyup="searchProducts(this.value)" placeholder="Cari aplikasi (Canva, Spotify, CapCut...)" 
+                            <input type="text" id="product-search" onkeyup="searchProducts(this.value)" placeholder="Cari Produk (Panel, Vps, Nokos...)" 
                                 class="w-full py-3 pl-12 pr-4 bg-dark-card border border-gray-700 text-white rounded-full focus:ring-2 focus:ring-zeka-cyan focus:border-transparent transition duration-300 shadow-xl">
                             <i data-lucide="search" class="w-5 h-5 text-gray-400 absolute left-4 top-1/2 transform -translate-y-1/2"></i>
                         </div>
@@ -891,7 +1003,6 @@
 </body>
 
 </html>
-
 
 
 
