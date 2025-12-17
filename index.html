@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chandra Hosting - Digital Produk</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q1G50DVBR0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-Q1G50DVBR0'); </script>
+    <!-- Load Inter Font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Lucide Icons for sleek, modern icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Configure Tailwind theme for black/blue aesthetic -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dark-bg': '#0D1117', // Black-dark
+                        'dark-card': '#161B22', // Slightly lighter black for cards
+                        'ndraa-black': '#000000',
+                        'ndraa-purple': '#FF00C8',
+                        'zeka-blue': '#00E5FF', // PRIMARY ELECTRIC NEON BLUE (Sangat Terang)
+                        'zeka-cyan': '#00FFFF', // PURE NEON NEON CYAN (Aksen Paling Terang)
+                    },
+                    keyframes: {
+                        'subtle-move': {
+                            // Keyframe untuk memastikan pergerakan halus (untuk latar belakang)
+                            '0%': { transform: 'translate(0, 0)' },
+                            '100%': { transform: 'translate(-5%, 5%)' },
+                        },
+                        'scroll-left': {
+                            // Keyframe untuk scroll horizontal tak terbatas
+                            '0%': { transform: 'translateX(0)' },
+                            '100%': { transform: 'translateX(-100%)' }, 
+                        },
+                        'pulse-neon': {
+                            // Dibuat lebih halus
+                            '0%, 100%': { opacity: '0.8', 'box-shadow': '0 0 10px rgba(0, 229, 255, 0.4)' },
+                            '50%': { opacity: '1', 'box-shadow': '0 0 20px rgba(0, 229, 255, 0.9)' },
+                        }
+                    },
+                    animation: {
+                        // Animasi pergerakan halus
+                        'subtle-move': 'subtle-move 30s infinite alternate', 
+                        // Animasi scroll testimoni lebih cepat (40s)
+                        'testimonial-scroll': 'scroll-left 40s linear infinite', 
+                        // Animasi pulse neon untuk garis sambung
+                        'pulse-neon': 'pulse-neon 3s infinite alternate',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* CSS Kustom untuk Animasi Latar Belakang dan Efek Khusus */
+        body {
+            /* Terapkan font Inter */
+            font-family: 'Inter', sans-serif; 
+            /* Background utama diubah menjadi hitam solid */
+            background-color: #000000;
+            min-height: 100vh;
+            position: relative; 
+        }
+        
+        /* Efek overlay partikel/glow NEON INTENS */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Tiga lapis gradien radial */
+            background: radial-gradient(circle at 10% 20%, rgba(0, 229, 255, 0.45), transparent 40%), 
+                        radial-gradient(circle at 90% 80%, rgba(0, 255, 255, 0.40), transparent 50%),  
+                        radial-gradient(circle at 50% 50%, rgba(13, 17, 23, 0.4), transparent 70%); 
+            background-size: 200% 200%; 
+            pointer-events: none;
+            z-index: -1;
+            /* Animasi pergerakan halus */
+            animation: subtle-move 30s infinite alternate; 
+        }
+
+        /* Custom scrollbar for an elegant look (Warna Neon) */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #00E5FF; /* Menggunakan zeka-blue neon */
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #161B22;
+        }
+
+        /* Border khusus untuk efek bersinar (Warna Neon) */
+        .glow-border {
+            box-shadow: 0 0 15px rgba(0, 229, 255, 0.8); /* Glow lebih kuat */
+            border: 1px solid #00E5FF; /* Menggunakan zeka-blue neon */
+        }
+        .typing-cursor {
+            border-right: 2px solid #00E5FF; /* Menggunakan zeka-blue neon */
+            animation: blink 0.7s step-end infinite;
+        }
+        @keyframes blink {
+            from, to { border-right-color: transparent }
+            50% { border-right-color: #00E5FF } /* Menggunakan zeka-blue neon */
+        }
+        
+        /* Mengatur agar kontainer testimoni bergerak */
+        .testimonial-scroll-container {
+            width: max-content; /* Dua kali lebar untuk efek loop */
+        }
+
+        /* Custom Gradient Fix untuk Fade yang Mulus (Sesuai Latar Belakang #000000) */
+        .gradient-fade-left {
+            background: linear-gradient(to right, #000000 0%, #000000 20%, rgba(0, 0, 0, 0) 100%);
+        }
+        .gradient-fade-right {
+            background: linear-gradient(to left, #000000 0%, #000000 20%, rgba(0, 0, 0, 0) 100%);
+        }
+
+        /* Kelas untuk garis putus-putus neon yang menghubungkan */
+        .process-connector {
+            /* Warna dan gaya garis putus-putus */
+            border-bottom: 3px dashed #00E5FF; /* Dibuat lebih tebal */
+            /* Efek bersinar halus */
+            box-shadow: 0 5px 10px rgba(0, 229, 255, 0.2); 
+            /* Animasi pulse */
+            animation: pulse-neon 3s infinite alternate;
+        }
+        
+        /* Gaya khusus untuk card proses */
+        .process-card {
+             /* Lebih tebal dari glow-border, khusus untuk card proses */
+             border: 2px solid transparent; 
+             transition: all 0.5s ease-in-out;
+             /* Background gradien samar */
+             background: linear-gradient(145deg, #161B22, #0D1117);
+        }
+        .process-card:hover {
+            border-color: #00E5FF;
+            box-shadow: 0 0 30px rgba(0, 229, 255, 0.6);
+        }
+        @media (max-width: 768px) {
+
+             /* Paksa layout tetap horizontal */
+             .bg-gray-800.flex.items-center.gap-4 {
+             flex-wrap: nowrap;
+             }
+
+        /* Kecilkan teks harga */
+        .bg-gray-800 .text-3xl {
+        font-size: 1.25rem;
+        }
+
+        /* Kecilkan tombol */
+        .bg-gray-800 button {
+        padding: 0.4rem 0.75rem;
+        font-size: 0.75rem;
+        white-space: nowrap;
+        }
+
+        }
+
+    </style>
+</head>
+<body class="text-gray-200 antialiased font-sans">
+
+    <!-- Kontainer Utama -->
+    <div id="app" class="max-w-7xl mx-auto p-4 md:p-8">
+
+        <!-- HEADER / NAVBAR -->
+        <header class="flex justify-between items-center py-4 px-4 bg-dark-card/80 backdrop-blur-sm rounded-xl shadow-2xl mb-8 glow-border">
+            <div class="flex items-center space-x-3">
+                <!-- LOGO/PROFIL -->
+                <img id="logo-img" src="logo.jpeg" alt="Zekaaid Logo" class="w-10 h-10 rounded-full object-cover border-2 border-zeka-blue p-0.5" 
+                    onerror="this.onerror=null; this.src='https://placehold.co/40x40/00E5FF/000000?text=C';">
+                <!-- H1 Update: "Chandra Hosting" menjadi putih total -->
+                <h1 class="text-2xl font-extrabold tracking-wider text-white uppercase">Chandra <span class="text-white">Hosting</span></h1>
+            </div>
+            <nav class="hidden md:flex space-x-6">
+                <a href="#" onclick="showHome()" class="text-gray-400 hover:text-zeka-cyan transition duration-300 font-medium">Beranda</a>
+                <a href="#products" onclick="showProductsView()" class="text-gray-400 hover:text-zeka-cyan transition duration-300 font-medium">Produk</a>
+                <!-- Link baru ke halaman Testimoni -->
+                <a href="#testi" onclick="showTestimonialsView()" class="text-gray-400 hover:text-zeka-cyan transition duration-300 font-medium">Testimoni</a>
+            </nav>
+            <button class="md:hidden text-zeka-blue" onclick="toggleMobileMenu()">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </header>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-dark-card rounded-xl p-4 mb-4">
+             <nav class="flex flex-col space-y-2">
+                <a href="#" onclick="toggleMobileMenu(); showHome()" class="text-gray-400 hover:text-zeka-cyan transition duration-300 font-medium p-2 rounded-lg hover:bg-gray-800">Beranda</a>
+                <a href="#products" onclick="toggleMobileMenu(); showProductsView()" class="text-gray-400 hover:text-zeka-cyan transition duration-300 font-medium p-2 rounded-lg hover:bg-gray-800">Produk</a>
+                <a href="#testi" onclick="toggleMobileMenu(); showTestimonialsView()" class="text-gray-400 hover:text-zeka-cyan transition duration-300 font-medium p-2 rounded-lg hover:bg-gray-800">Testimoni</a>
+            </nav>
+        </div>
+        
+        <!-- ============================================== -->
+        <!-- VIEW CONTAINER -->
+        <!-- ============================================== -->
+        <main id="view-container">
+            <!-- Isi di sini akan diisi oleh JavaScript -->
+        </main>
+
+        <!-- FOOTER (Warna Neon) -->
+        <footer class="mt-12 pt-6 border-t border-gray-700 text-center text-gray-500">
+            <p class="text-sm">&copy; <span class="text-white"> 2025 ChandraID Hosting</span>. All Rights Reversed.</p>
+            <div class="flex flex-wrap justify-center gap-x-8 gap-y-4 mt-4">
+                
+                <!-- WhatsApp Link -->
+                <a href="https://wa.me/6283871403406" target="_blank" class="flex items-center space-x-2 text-gray-400 hover:text-green-500 transition duration-300" title="WhatsApp Chandra">
+                    <i data-lucide="message-circle" class="w-5 h-5"></i>
+                    <span class="text-sm font-semibold">WhatsApp Admin</span>
+                </a>
+                
+                <!-- Telegram Link -->
+                <a href="https://t.me/knowndraa" target="_blank" class="flex items-center space-x-2 text-gray-400 hover:text-zeka-blue transition duration-300" title="Telegram Chandra">
+                    <i data-lucide="send" class="w-5 h-5"></i>
+                    <span class="text-sm font-semibold">Telegram Admin</span>
+                </a>
+                
+                <!-- Youtube Link dengan Username -->
+                <a href="https://www.youtube.com/@Rexxuz11" target="_blank" class="flex items-center space-x-2 text-gray-400 hover:text-red-500 transition duration-300" title="Instagram Chandra">
+                    <i data-lucide="youtube" class="w-5 h-5"></i>
+                    <span class="text-sm font-semibold">@knowndraa</span>
+                </a>    
+                
+               <!-- TikTok Link dengan Username -->
+                <a href="https://www.tiktok.com/@knowndraa" target="_blank" class="flex items-center space-x-2 text-gray-400 hover:text-ndraa-black transition duration-300" title="TikTok Chandra">
+                    <i data-lucide="music2" class="w-5 h-5"></i>
+                    <span class="text-sm font-semibold">@knowndraa</span>
+                </a>
+                
+                <!-- Instagram Link dengan Username -->
+                <a href="https://www.instagram.com/knowndraa" target="_blank" class="flex items-center space-x-2 text-gray-400 hover:text-ndraa-purple transition duration-300" title="Instagram Chandra">
+                    <i data-lucide="instagram" class="w-5 h-5"></i>
+                    <span class="text-sm font-semibold">@knowndraa</span>
+                </a>
+                
+            </div>
+        </footer>
+
+    </div>
+
+    <script>
+        // ==============================================
+        // DATA APLIKASI DAN TESTIMONI
+        // ==============================================
+        const products = [
+            {
+                name: "Panel Pterodactyl",
+                slug: "panel-bot-wa",
+                imageUrl: "panel.png",
+                isBestseller: true,
+                description: "Panel pterodactyl berbasis web untuk mengelola berbagai layanan server dengan sistem yang stabil, fleksibel, dan mudah digunakan.",
+                benefits: ["Spek R16 C8," ,"Private Server", "Anti mokad", "Anti Ngelag/Delay", "Server On 24/7", "Support Node24 Terbaru", "Bergaransi 7Day 1× Replace"],
+                prices: [
+                { duration: "1GB RAM", price: "Rp 1.000" },
+                { duration: "2GB RAM", price: "Rp 2.000" },
+                { duration: "3GB RAM", price: "Rp 3.000 " },
+                { duration: "4GB RAM", price: "Rp 4.000" },
+                { duration: "5GB RAM", price: "Rp 5.000" },
+                { duration: "6GB RAM", price: "Rp 6.000" },
+                { duration: "7GB RAM", price: "Rp 7.000" },
+                { duration: "8GB RAM", price: "Rp 8.000" },
+                { duration: "9GB RAM", price: "Rp 9.000" },
+                { duration: "UNLIMITED", price: "Rp 10.000" }
+  ],
+  tag: "Panel Hosting",
+  type: "panel"
+},
+            {
+                name: "Nokos Whatsapp",
+                slug: "nomor-kosong",
+                imageUrl: "nokos.png",
+                isBestseller: true,
+                description: "Nomor virtual whatsapp fresh dengan pilihan berbagai negara, dan beberapa providers langsung siap untuk digunakan.",
+                benefits: ["Nomor Fresh", " Anti Kenon", "Anti Hackback", " Garansi Otp", "Aman 100%", " Harga Terbaik & Murah",],
+                prices: [
+                { duration: "Indonesia", price: "Rp 5.000" },
+                { duration: "Filipina", price: "Rp 7.000" },
+                { duration: "Malaysia", price: "Rp 8.000" },
+                { duration: "Kanada", price: "Rp 8.000" },
+                { duration: "Afghanistan", price: "Rp 13.000" }
+                ],
+                tag: "Nomor Kosong",
+            },
+                        {
+                name: "Surxrat New S35",
+                slug: "surxrat-new",
+                imageUrl: "surxrat",
+                isBestseller: false,
+                description: "Program Yang Menyediakan Kemampuan Untuk Melakukan Pengawasan Rahasia Atau Akses Tanpa Izin Ke Device Korban.",
+                benefits: ["Melihat Isi Galeri Korban", "Melihat Semua Email/Gmail Korban", "Melihat Semua Sms Korban", "Memantau Status Sistem Korban", " Menghapus Semua File Korban", "Mengubah Wallpaper Utama & Lock Screen", " Menyalakan Senter Pada Hp Korban", "Garansi Seumur Hidup", "Semua Fitur Premium", " Lengkap Tutorialnya", "Dan Masih Banyak Lagi"],
+                prices: [
+                { duration: "Surxrat", price: "Rp 20.000" },
+                { duration: "Reseller", price: "Rp 45.000" }
+                ],
+                tag: "Remote Acces Trojan",
+            },
+            {
+                name: "Script Alicev16",
+                slug: "sc-alice-bot",
+                imageUrl: "alice.png",
+                description: "Source code bot WhatsApp Alice. Sekali beli, free update minor.",
+                benefits: ["Security Database (Sangat Aman)", "1600+ Fitur Aktif & Stabil", "Type Case X Plugins", "Full Support Button,katalog,quick reply, & Carousel", "Support Lid & Jid", "100% No Enc ( Full Open Source & Bebas branding)",
+                            "Size Ringan & Peforma Stabil",
+                            "Ringan Di Hp, Panel, & Lain lain",
+                            "Base Simple & Struktur Rapih",
+                            "Custom Pairing Code ",
+                            "40+ Scraper Premium Aktif ( Youtube,Tiktok, Instagram,DLL)",
+                            "Free Apikey Bawaan( Siap Pakai! , Tanpa perlu setup )",
+                            "Dan Masih Banyak Lagi!!"],
+                prices: [
+                { duration: "No Update", price: "Rp 50.000" }
+                ],
+                tag: "Script",
+                type: "script"
+            }
+
+        ];
+
+        const testimonialsData = [
+            { name: "Vlrnz2", feedback: "Gacorrr Bg", app: "spotify", rating:3},
+            { name: "Rerep", feedback: "sayangggg kerennnn.", app: "capcut", rating:5},
+            { name: "loANn4.", feedback: "mantap bg,aman", app: "alight motion", rating:5}, 
+            { name: "kazjj.", feedback: "Aman,mantp", app: "netflix", rating:5},
+            { name: "ryNZ.", feedback: "Bintang 1 karna ga kebagian Neflix", app: "panel", rating:1},
+            { name: "kaizo9.", feedback: "Gacor juga panel nya", app: "panel", rating:5},
+            { name: "ricco4.", feedback: "Akun Spotify nya works,Mantep ", app: "spotify", rating:4},
+            { name: "Dedenk.", feedback: "Mantap bg", app: "canva", rating:5},
+            { name: "Titan.", feedback: "Donee", app: "panel", rating:5},
+            { name: "Aryzn.", feedback: "Aman", app: "canva", rating:4},
+            { name: "Fldzyn", feedback: "mantap,aman ges", app: "chatgpt", rating:5},
+            { name: "apyan33.", feedback: "Admin nya gercep cuy", app: "Neflix", rating:5},
+            { name: "buyerzk.", feedback: "Mantappp", app: "Neflix", rating:5},
+            { name: "Rizkynn.", feedback: "Admin nya fastrespon cuy mantep", app: "Neflix", rating:5},
+            { name: "fazzln.", feedback: "Kpn Neflix ready", app: "canva", rating:3}
+         
+        ];
+
+        // Hitung kategori unik
+        const uniqueTags = [...new Set(products.map(p => p.tag))];
+
+        // State Management
+        let currentView = { page: 'home', data: null };
+        const viewContainer = document.getElementById('view-container');
+        const WA_NUMBER = "6283871403406";
+        // Tambahkan state untuk filter
+        let currentFilter = 'All'; // 'All' atau tag kategori
+        let currentSearchQuery = '';
+
+        // Fungsi untuk mengontrol navigasi SPA
+        function renderView() {
+            viewContainer.innerHTML = '';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            if (currentView.page === 'home') {
+                viewContainer.innerHTML = renderHome();
+                startTypingAnimation();
+            } else if (currentView.page === 'product-detail' && currentView.data) {
+                viewContainer.innerHTML = renderProductDetail(currentView.data);
+            } else if (currentView.page === 'products-list') {
+                viewContainer.innerHTML = renderProductList();
+                updateProductGrid(currentSearchQuery, currentFilter);
+            } else if (currentView.page === 'testimonials') {
+                // Halaman Testimoni Baru
+                viewContainer.innerHTML = renderTestimonialsView();
+            }
+            
+            // Re-render Lucide icons after content is loaded
+            lucide.createIcons();
+        }
+
+        // ==============================================
+        // RENDER HOMEPAGE 
+        // ==============================================
+        function renderHome() {
+            const bestsellerProducts = products.filter(p => p.isBestseller);
+
+            return `
+                <!-- BAGIAN BERANDA (HERO SECTION BARU) -->
+                <section class="py-16 md:py-24 mb-12 relative overflow-hidden">
+                    <!-- Dekorasi Cahaya Blur (Warna disesuaikan ke Neon) -->
+                    <div class="absolute inset-0 bg-zeka-blue/15 transform scale-150 blur-3xl opacity-10 pointer-events-none"></div>
+
+                    <div class="relative z-10 max-w-4xl mx-auto text-center">
+                        <!-- Tanda centang hijau dihapus -->
+                        <div class="inline-block px-4 py-1 mb-4 text-sm font-semibold rounded-full bg-zeka-cyan/30 text-zeka-cyan border border-zeka-cyan/50 backdrop-blur-sm shadow-md">
+                            Garansi Terjangkau & Harga Termurah
+                        </div>
+                        
+                        <h2 class="text-5xl md:text-7xl font-black text-white leading-tight mb-4">
+                            <!-- UPDATED: Text color menjadi putih -->
+                            <span id="typing-text" class="text-white"></span>
+                            <span class="typing-cursor"></span>
+                        </h2>
+
+                        <p class="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+                            Kami menyediakan ada banyak produk yang mungkin anda suka,silahkan click tombol berwarna biru di bawah untuk melihat semua produk kami,jika anda ingin tampilan web lebih keren ubah tampilan chrome anda menjadi tampilan desktop.
+                        </p>
+
+                        <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                            <button onclick="showProductsView()" class="px-8 py-3 bg-zeka-blue text-dark-bg font-bold text-lg rounded-xl shadow-2xl hover:bg-zeka-cyan transition duration-300 transform hover:scale-105">
+                                Lihat Semua Produk
+                            </button>
+                            <a href="#cara-pemesanan" class="px-8 py-3 border border-gray-600 text-white font-medium text-lg rounded-xl hover:bg-dark-card transition duration-300 flex items-center justify-center space-x-2">
+                                <span>Proses Aktivasi</span>
+                                <i data-lucide="arrow-down-circle" class="w-5 h-5"></i>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- CARA PEMESANAN (UPGRADE FUTURISTIK) -->
+                <section class="mb-12" id="cara-pemesanan">
+                    <h3 class="text-4xl font-black text-white mb-3 text-center">
+                        <span class="bg-gradient-to-r from-zeka-blue to-zeka-cyan text-transparent bg-clip-text">AKTIVASI</span> INSTAN
+                    </h3>
+                    <!-- SUBTITLE DIUBAH KE WARNA PUTIH (text-white) -->
+                    <p class="text-white text-center mb-10 text-lg">Hanya 3 Langkah untuk Upgrade Kehidupan Digital Anda</p>
+                    
+                    <div class="relative grid md:grid-cols-3 gap-8">
+                        
+                        <!-- GARIS SAMBUNG 1 (Di antara Step 1 dan 2) -->
+                        <div class="hidden md:block absolute top-1/2 left-[16.6%] right-[50%] transform -translate-y-1/2 w-[33%] pr-16 h-1 process-connector"></div>
+                        
+                        <!-- GARIS SAMBUNG 2 (Di antara Step 2 dan 3) -->
+                        <div class="hidden md:block absolute top-1/2 left-[50%] right-[16.6%] transform -translate-y-1/2 w-[33%] pr-16 h-1 process-connector"></div>
+
+                        <!-- Langkah 1: Kunci Produk -->
+                        ${renderHowToOrderStep(1, "UNLOCK PRODUK", "Jelajahi Produk kami dan kunci produk yang Anda butuhkan.", "lock", true)}
+                        
+                        <!-- Langkah 2: SINKRONISASI DATA -->
+                        ${renderHowToOrderStep(2, "SINKRONISASI DATA", "Hubungi tim support kami via WhatsApp, kirimkan detail dan lakukan konfirmasi pembayaran.", "message-square-text", true)}
+                        
+                        <!-- Langkah 3: AKTIVASI ZAP -->
+                        ${renderHowToOrderStep(3, "AKTIVASI ZAP", "Akun premium Anda langsung diproses! Terima akses & nikmati fitur tak terbatas.", "zap", false)}
+                    </div>
+                    
+                </section>
+
+                <!-- APLIKASI POPULER / BESTSELLER (Warna Neon) -->
+                <section class="mb-12">
+                    <h3 class="text-3xl font-bold text-zeka-blue mb-6 text-center border-b border-gray-700 pb-3">🔥Paling Bestseller🔥</h3>
+                    <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                        ${bestsellerProducts.map(renderProductCard).join('')}
+                    </div>
+                </section>
+            `;
+        }
+
+        // FUNGSI UNTUK MERENDER LANGKAH CARA PEMESANAN
+        function renderHowToOrderStep(step, title, description, icon, isConnected) {
+            return `
+                <div class="process-card p-6 rounded-2xl shadow-xl transition duration-500 transform hover:-translate-y-2 relative">
+                    <!-- Titik Konektor (Di atas ikon) -->
+                    <div class="absolute -top-1 left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-zeka-blue shadow-lg border-2 border-dark-card process-dot animate-pulse-neon"></div>
+
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-10 h-10 bg-zeka-blue/30 text-zeka-blue rounded-full flex items-center justify-center border border-zeka-blue/50 flex-shrink-0">
+                            <i data-lucide="${icon}" class="w-5 h-5"></i>
+                        </div>
+                        <h4 class="text-xl font-extrabold text-white leading-tight">${title}</h4>
+                    </div>
+                    
+                    <p class="text-gray-400 text-sm mb-4">${description}</p>
+                    
+                    <!-- Indikator Langkah di Bawah -->
+                    <div class="flex items-center justify-between pt-3 border-t border-gray-800">
+                        <span class="text-xs font-semibold text-zeka-cyan">LANGKAH KE - ${step}</span>
+                        <!-- Ikon Arah di Mobile -->
+                        ${isConnected ? `
+                             <i data-lucide="chevron-right" class="w-5 h-5 text-zeka-blue md:hidden"></i>
+                        ` : ''}
+                    </div>
+                    
+                    <!-- Garis Konektor Vertikal Mobile -->
+                    ${isConnected ? `
+                        <div class="md:hidden absolute bottom-[-35px] left-1/2 transform -translate-x-1/2 w-0.5 h-8 bg-zeka-blue process-connector" style="border-right-width: 3px;"></div>
+                    ` : ''}
+                </div>
+            `;
+        }
+
+            function renderTestimonial(name, feedback, app, rating = 5) {
+            const appName = products.find(p => p.name.toLowerCase().includes(app))?.name || 'Aplikasi';
+
+            // Generate bintang sesuai rating
+            const stars = Array.from({ length: 5 }, (_, i) => {
+            if (i < rating) {
+            return `<i data-lucide="star" class="w-5 h-5 fill-current text-yellow-400"></i>`;
+            } else {
+            return `<i data-lucide="star" class="w-5 h-5 text-gray-600"></i>`;
+            }
+            }).join('');
+
+            return `
+            <div class="bg-dark-card p-6 rounded-xl shadow-xl border border-gray-700 flex-shrink-0 min-w-[280px] md:min-w-[320px] mr-6">
+            <div class="flex items-center space-x-1 mb-3">
+                ${stars}
+            </div>
+            <p class="text-gray-300 italic mb-4">"${feedback}"</p>
+            <p class="text-sm font-bold text-zeka-blue">- ${name} (Buy ${appName})</p>
+            </div>
+                `;
+            }
+
+        
+
+        // ==============================================
+        // RENDER TESTIMONIALS VIEW (HALAMAN BARU)
+        // ==============================================
+        function renderTestimonialsView() {
+            // Duplikasi data untuk memastikan loop animasi berjalan mulus
+            const repeatedTestimonials = [...testimonialsData, ...testimonialsData, testimonialsData,];
+
+            return `
+                <section class="mb-12">
+                    <h3 class="text-4xl font-black text-zeka-blue mb-8 text-center">Testimoni Pelanggan <span class="text-white">Terbaru</span></h3>
+                    <p class="text-center text-gray-400 max-w-2xl mx-auto mb-10">
+                        Lihat apa kata mereka yang buy, dan harga terbaik dari Zekaa Store.
+                    </p>
+
+                    <!-- Scrolling Wrapper -->
+                    <div class="overflow-hidden relative py-4 bg-dark-card rounded-xl border border-gray-800 shadow-2xl">
+                        <!-- Custom Gradient Fix untuk Fade yang Mulus -->
+                        <div class="absolute inset-y-0 left-0 w-16 gradient-fade-left z-10 pointer-events-none"></div>
+                        <div class="absolute inset-y-0 right-0 w-16 gradient-fade-right z-10 pointer-events-none"></div>
+                        
+                        <!-- Animated Container (Bergerak Lambat) -->
+                        <div class="flex testimonial-scroll-container animate-testimonial-scroll">
+                            ${repeatedTestimonials.map(t => 
+                                renderTestimonial(t.name, t.feedback, t.app, t.rating)
+                            ).join('')}
+                        </div>
+                    </div>
+
+                    <div class="mt-10 text-center">
+                        <p class="text-gray-500 italic">Total ${testimonialsData.length}+ Ulasan Bintang 5 dari Pelanggan Puas.</p>
+                    </div>
+                </section>
+            `;
+        }
+        
+        // ==============================================
+        // RENDER PRODUCT LIST (SEMUA PRODUK) - DENGAN FILTER
+        // ==============================================
+        function renderProductList() {
+             const filterButtons = uniqueTags.map(tag => 
+                `<button onclick="updateProductGrid('', '${tag}')" data-filter="${tag}" 
+                    class="filter-btn px-4 py-2 rounded-full text-sm font-medium transition duration-300 border border-gray-700 hover:bg-zeka-blue/20 hover:text-zeka-cyan text-gray-400 mb-2">
+                    ${tag}
+                </button>`
+            ).join('');
+
+             return `
+                <section class="mb-12">
+                    <!-- PERUBAHAN DI SINI: Membuat kata 'Premium' berwarna putih -->
+                    <h3 class="text-4xl font-black text-zeka-blue mb-8 text-center"> Product Chandra <span class="text-white">Hosting</span></h3>
+                    
+                    <!-- Search Bar -->
+                    <div class="flex justify-center mb-6">
+                        <div class="relative w-full max-w-lg">
+                            <input type="text" id="product-search" onkeyup="searchProducts(this.value)" placeholder="Cari aplikasi (Canva, Spotify, CapCut...)" 
+                                class="w-full py-3 pl-12 pr-4 bg-dark-card border border-gray-700 text-white rounded-full focus:ring-2 focus:ring-zeka-cyan focus:border-transparent transition duration-300 shadow-xl">
+                            <i data-lucide="search" class="w-5 h-5 text-gray-400 absolute left-4 top-1/2 transform -translate-y-1/2"></i>
+                        </div>
+                    </div>
+
+                    <!-- Category Filters -->
+                    <div class="flex flex-wrap justify-center gap-2 mb-8 p-3 bg-dark-card/50 rounded-xl glow-border">
+                        <!-- Filter All Button -->
+                        <button onclick="updateProductGrid('', 'All')" data-filter="All" 
+                            class="filter-btn px-4 py-2 rounded-full text-sm font-medium transition duration-300 border border-gray-700 hover:bg-zeka-blue/20 hover:text-zeka-cyan text-gray-400 mb-2">
+                            Semua Kategori
+                        </button>
+                        <!-- Dynamic Filter Buttons -->
+                        ${filterButtons}
+                    </div>
+
+                    <!-- Product Grid -->
+                    <div id="product-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                        <!-- Konten diisi oleh updateProductGrid -->
+                    </div>
+
+                    <div id="no-results" class="hidden text-center text-gray-400 mt-10">
+                        <i data-lucide="info" class="w-8 h-8 mx-auto mb-2 text-zeka-blue"></i>
+                        <p class="text-xl">Tidak ada produk yang cocok dengan pencarian atau filter Anda.</p>
+                    </div>
+                </section>
+            `;
+        }
+
+        // FUNGSI UNTUK KARTU YANG LEBIH RAMPING DAN FOKUS
+        function renderProductCard(product) {
+            return `
+                <div onclick="showProductDetail('${product.slug}')" 
+                     class="bg-dark-card p-3 rounded-xl shadow-2xl border border-gray-800 
+                            transform hover:scale-[1.05] hover:border-zeka-blue transition 
+                            duration-300 cursor-pointer relative group overflow-hidden">
+                    
+                    ${product.isBestseller ? '<span class="absolute top-0 right-0 bg-red-600 text-white text-xs font-bold px-2 py-0.5 rounded-bl-lg rounded-tr-xl z-10">BESTSELLER</span>' : ''}
+                    
+                    <div class="flex items-center space-x-3 mb-2">
+                        <!-- Area Gambar Produk (Lebih kecil) -->
+                        <div class="flex-shrink-0 w-12 h-12 rounded-lg overflow-hidden bg-gray-900 border border-gray-700">
+                            <img src="${product.imageUrl}" alt="${product.name}" 
+                                class="w-full h-full object-cover"
+                                onerror="this.onerror=null; this.src='https://placehold.co/48x48/161B22/ffffff?text=${product.name.split(' ')[0]}';">
+                        </div>
+
+                        <div class="flex-grow">
+                            <h4 class="text-lg font-bold text-white group-hover:text-zeka-cyan leading-tight">${product.name}</h4>
+                            <span class="text-xs font-medium self-start rounded-full text-gray-500">${product.tag}</span>
+                        </div>
+                    </div>
+
+                    <p class="text-gray-400 text-xs mb-3 h-8 line-clamp-2">${product.description}</p>
+                    
+                    <!-- Price Footer -->
+                    <div class="flex justify-between items-center pt-2 border-t border-gray-800">
+                        <div class="text-left">
+                            <span class="text-sm text-gray-500 block leading-none">Mulai dari</span>
+                            <span class="text-xl font-extrabold text-zeka-cyan">${product.prices[0].price}</span>
+                        </div>
+                        
+                        <button class="px-3 py-1.5 bg-zeka-blue text-dark-bg font-bold rounded-lg text-xs hover:bg-zeka-cyan transition duration-300 transform hover:scale-105">
+                            Detail
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+        
+        // ==============================================
+        // RENDER PRODUCT DETAIL
+        // ==============================================
+        function renderProductDetail(product) {
+            const benefitsList = product.benefits.map(benefit => `
+                <li class="flex items-start space-x-3 text-gray-300 mb-2">
+                    <i data-lucide="check-circle" class="w-5 h-5 text-green-400 mt-1 flex-shrink-0"></i>
+                    <span>${benefit}</span>
+                </li>
+            `).join('');
+
+            const pricesTable = product.prices.map(price => `
+                <!-- Mengubah layout: flex items-center gap-4 untuk kontrol jarak -->
+                <div class="flex items-center gap-4 p-4 bg-gray-800 rounded-lg mb-2 border border-gray-700">
+                    
+                    <!-- Durasi & Garansi (Dikelompokkan dalam satu div) -->
+                    <div class="flex flex-col flex-grow">
+                        <!-- Durasi (DIKECILKAN ke text-sm) -->
+                        <span class="font-semibold text-sm text-white">${price.duration}</span>
+                        <!-- Teks Garansi Tambahan -->
+                        <span class="text-xs text-green-400 mt-0.5"> Ndraa Host</span>
+                    </div>
+                    
+                    <!-- Harga (Didorong ke kanan dengan ml-auto dan dilindungi dari penyusutan) -->
+                    <div class="text-right ml-auto flex-shrink-0">
+                        <span class="text-3xl font-black text-zeka-cyan">${price.price}</span>
+                    </div>
+
+                    <!-- Button (Dilindungi dari penyusutan) -->
+                    <button onclick="orderViaWhatsApp('${product.name}', '${price.duration}')" 
+                            class="px-6 py-2 bg-green-600 text-white font-bold rounded-full hover:bg-green-500 transition duration-300 transform hover:scale-105 shadow-lg flex-shrink-0">
+                        Order via WhatsApp
+                    </button>
+                </div>
+            `).join('');
+
+
+            return `
+                <section class="bg-dark-card p-8 rounded-3xl shadow-2xl border border-gray-700">
+                    <div class="flex justify-between items-center mb-6">
+                        <button onclick="showProductsView()" class="flex items-center space-x-2 text-gray-400 hover:text-zeka-blue transition duration-300">
+                            <i data-lucide="arrow-left" class="w-5 h-5"></i>
+                            <span>Kembali ke Produk</span>
+                        </button>
+                    </div>
+
+                    <div class="grid lg:grid-cols-2 gap-10">
+                        <!-- KOLOM KIRI: INFO PRODUK -->
+                        <div>
+                            <!-- Tampilkan gambar produk di detail -->
+                            <div class="w-32 h-32 mb-4 rounded-xl overflow-hidden bg-gray-900 border-2 border-zeka-blue/50">
+                                <img src="${product.imageUrl}" alt="${product.name}" class="w-full h-full object-cover" 
+                                    onerror="this.onerror=null; this.src='https://placehold.co/128x128/161B22/ffffff?text=${product.name.split(' ')[0]}';">
+                            </div>
+
+                            <span class="text-sm font-medium px-3 py-1 bg-zeka-blue/20 text-zeka-cyan rounded-full">${product.tag}</span>
+                            <h2 class="text-5xl font-black text-white mt-3 mb-4">${product.name}</h2>
+                            <p class="text-gray-400 text-lg mb-6">${product.description}</p>
+                            
+                            <!-- BAGIAN BENEFIT -->
+                            <h3 class="text-2xl font-bold text-zeka-blue mb-4 border-b border-gray-700 pb-2">${ product.type === "script"
+                            ? "Benefits Script"
+                            : product.type === "panel"
+                            ? "Spesifikasi Panel"
+                            : "Benefit Produk"
+                            }</h3>
+                            <ul class="space-y-3">
+                                ${benefitsList}
+                            </ul>
+                            
+                            <p class="mt-8 text-sm text-gray-500 italic">
+                                *Garansi aman. Pastikan Anda membaca cara pemesanan di beranda. Jika pilihan list produk tidak ada di menu silahkan tanyakan kepada admin.
+                            </p>
+                        </div>
+
+                        <!-- KOLOM KANAN: HARGA & ORDER -->
+                        <div class="bg-gray-900 p-6 rounded-2xl border border-zeka-blue/50 shadow-2xl">
+                            <h3 class="text-3xl font-bold text-zeka-cyan mb-4">
+                            ${product.type === "script" ? "Order Script" : "Pilih Menu & Order"}
+                            </h3>
+
+                            ${pricesTable}
+                            <p class="text-center text-sm text-gray-500 mt-4">Klik tombol order untuk pesan otomatis via WhatsApp.</p>
+                        </div>
+                    </div>
+                </section>
+            `;
+        }
+
+        // ==============================================
+        // NAVIGATION FUNCTIONS 
+        // ==============================================
+
+        function showHome() {
+            currentView = { page: 'home', data: null };
+            renderView();
+        }
+
+        function showProductsView() {
+            currentView = { page: 'products-list', data: null };
+            // Reset filter dan search saat pindah ke Products View
+            currentFilter = 'All'; 
+            currentSearchQuery = '';
+            renderView();
+        }
+
+        function showProductDetail(slug) {
+            const product = products.find(p => p.slug === slug);
+            if (product) {
+                currentView = { page: 'product-detail', data: product };
+                renderView();
+            } else {
+                console.error("Produk tidak ditemukan:", slug);
+                showProductsView(); // Fallback
+            }
+        }
+        
+        // Fungsi navigasi baru untuk Testimoni
+        function showTestimonialsView() {
+    currentView = { page: 'testimonials', data: null };
+    renderView();
+}
+
+
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // ==============================================
+        // FEATURE: TYPING ANIMATION 
+        // ==============================================
+        const textToType = "Selamat Datang Di Chandra Host";
+        let charIndex = 0;
+        let typingInterval;
+
+        function startTypingAnimation() {
+            const typingElement = document.getElementById('typing-text');
+            if (!typingElement) return;
+
+            charIndex = 0;
+            typingElement.textContent = '';
+            // Pastikan kursor muncul kembali
+            typingElement.parentElement.querySelector('.typing-cursor').style.display = 'inline';
+
+            if (typingInterval) clearInterval(typingInterval);
+            
+            typingInterval = setInterval(() => {
+                if (charIndex < textToType.length) {
+                    typingElement.textContent += textToType.charAt(charIndex);
+                    charIndex++;
+                } else {
+                    clearInterval(typingInterval);
+                    // Sembunyikan kursor setelah selesai mengetik
+                    typingElement.parentElement.querySelector('.typing-cursor').style.display = 'none';
+                }
+            }, 100); // Kecepatan ketik
+        }
+
+        // ==============================================
+        // FEATURE: WHATSAPP ORDER
+        // ==============================================
+        function orderViaWhatsApp(productName, info, type) {
+            let template = "";
+            if (type === "script") {
+            template = `Halo bg, saya ingin beli ${productName} harga ${info}.`;
+            } else {
+            template = `Halo bg, saya ingin order ${productName} ${info}, masih stock ga bg?`;
+            }
+
+            const encodedTemplate = encodeURIComponent(template);
+            const whatsappUrl = `https://wa.me/${WA_NUMBER}?text=${encodedTemplate}`;
+            window.open(whatsappUrl, '_blank');
+            }
+
+
+        // ==============================================
+        // FEATURE: SEARCH & FILTER FUNCTION 
+        // ==============================================
+        function updateProductGrid(query, filter) {
+            const grid = document.getElementById('product-grid');
+            const noResults = document.getElementById('no-results');
+            if (!grid) return; // Hanya berjalan jika di halaman produk
+
+            // 1. Update State
+            currentSearchQuery = query !== undefined ? query.toLowerCase() : currentSearchQuery;
+            currentFilter = filter !== undefined ? filter : currentFilter;
+            
+            // Sinkronisasi input pencarian
+            const searchInput = document.getElementById('product-search');
+            if (searchInput && query !== undefined) {
+                searchInput.value = query; 
+            }
+
+            // 2. Aplikasikan Filtering dan Searching
+            const filteredAndSearchedProducts = products.filter(p => {
+                const matchesFilter = currentFilter === 'All' || p.tag === currentFilter;
+                
+                const matchesSearch = p.name.toLowerCase().includes(currentSearchQuery) || 
+                                      p.description.toLowerCase().includes(currentSearchQuery) ||
+                                      p.tag.toLowerCase().includes(currentSearchQuery);
+
+                return matchesFilter && matchesSearch;
+            });
+
+            // 3. Perbarui UI Grid
+            if (filteredAndSearchedProducts.length > 0) {
+                grid.innerHTML = filteredAndSearchedProducts.map(renderProductCard).join('');
+                noResults.classList.add('hidden');
+            } else {
+                grid.innerHTML = '';
+                noResults.classList.remove('hidden');
+            }
+            
+            // 4. Perbarui Status Aktif Tombol Filter
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                // Hapus kelas aktif dan terapkan kelas default
+                btn.classList.remove('bg-zeka-blue', 'text-dark-bg', 'border-zeka-blue', 'hover:bg-zeka-blue/90', 'hover:text-dark-bg');
+                btn.classList.add('bg-dark-card/50', 'text-gray-400', 'border-gray-700', 'hover:bg-zeka-blue/20', 'hover:text-zeka-cyan');
+                
+                // Periksa jika tombol ini adalah filter yang aktif
+                const btnFilter = btn.getAttribute('data-filter');
+                if (btnFilter === currentFilter) {
+                    // Terapkan kelas aktif (Warna Neon)
+                    btn.classList.remove('bg-dark-card/50', 'text-gray-400', 'border-gray-700', 'hover:bg-zeka-blue/20', 'hover:text-zeka-cyan');
+                    btn.classList.add('bg-zeka-blue', 'text-dark-bg', 'border-zeka-blue', 'hover:bg-zeka-blue/90', 'hover:text-dark-bg');
+                }
+            });
+
+            lucide.createIcons(); // Re-render icons for new cards
+        }
+
+        // Fungsi searchProducts sekarang hanya memanggil fungsi utama
+        function searchProducts(query) {
+            updateProductGrid(query, currentFilter);
+        }
+
+        // Initialize the app on load
+        document.addEventListener('DOMContentLoaded', () => {
+            renderView(); // Tampilkan Beranda saat pertama kali dimuat
+        });
+    </script>
+</body>
+
+</html>
+
+
+
+
